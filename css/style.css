@@ -16,3 +16,7 @@ body {
 .movies-list img {
     width: 250px;
 }
+
+.social a {
+    display: inline-block;
+}
