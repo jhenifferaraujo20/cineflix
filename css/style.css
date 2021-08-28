@@ -9,6 +9,11 @@ body {
     color: #ffffff;
 }
 
+a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
 .movies {
     margin: auto;
 }
@@ -17,6 +22,8 @@ body {
     width: 250px;
 }
 
-.social a {
-    display: inline-block;
+@media (max-width: 476px) {
+    .movies-list img {
+        width: 150px;
+    }
 }
