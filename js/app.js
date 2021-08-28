@@ -6,6 +6,9 @@ const API_URL_SEARCH = BASE_URL + "search/movie?" + API_KEY + "&language=pt-BR&q
 const IMG_URL = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/";
 const BASE_LINK = "https://www.themoviedb.org/movie/";
 
+const form = document.querySelector(".search-form");
+const input = document.querySelector(".search-input");
+
 function getMovies(url) {
     fetch(url).then((response) => response.json()).then(data => {
         LoadMovies(data.results);
@@ -29,4 +32,13 @@ function LoadMovies(data) {
     });
 }
 
-window.addEventListener('DOMContentLoaded', getMovies(API_URL_POPULAR));
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let moviesList = document.querySelector(".movies-list");
+    moviesList.innerHTML = "";
+    let search = input.value;
+    
+    getMovies(API_URL_SEARCH + search);
+});
+
+/*window.addEventListener('DOMContentLoaded', getMovies(API_URL_POPULAR));*/
